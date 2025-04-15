@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শুভ নববর্ষ ১৪৩২ | Pohela Boishakh</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff5f6d, #ffc371);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Kalpurush', sans-serif;
+        }
+
+        .greeting {
+            text-align: center;
+            color: #fff;
+            font-size: 3rem;
+            text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .year {
+            margin-top: 10px;
+            font-size: 2rem;
+            color: #ffe;
+            text-shadow: 0 0 15px rgba(255,255,255,0.7);
+            animation: fadeIn 4s infinite alternate;
+        }
+
+        .subtext {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: #ffe;
+            animation: fadeIn 4s infinite alternate;
+        }
+
+        .button-container {
+            margin-top: 35px;
+        }
+
+        button {
+            margin: 8px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: #ffffff;
+            color: #ff4e50;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #ff4e50;
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.6; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bg-music" loop>
+    <source src="boishakhi_song.mp3" type="audio/mpeg">
+    আপনার ব্রাউজার অডিও প্লে সমর্থন করে না।
+</audio>
+
+<div class="greeting" id="wish">
+    শুভ নববর্ষ!
+    <div class="year">১৪৩২</div>
+    <div class="subtext">নতুন বছরের শুভেচ্ছা ও ভালোবাসা!</div>
+
+    <div class="button-container">
+        <button onclick="changeWish()">আরও শুভেচ্ছা</button>
+        <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
+    </div>
+</div>
+
+<script>
+    const wishes = [
+        "শুভ নববর্ষ ১৪৩২! নতুন বছরে সুস্থতা, শান্তি আর আনন্দ আসুক।",
+        "নতুন বছর ১৪৩২ হোক আপনার জীবনে খুশির বার্তা।",
+        "১৪৩২ সনে সুখ আর সমৃদ্ধি আসুক। শুভ নববর্ষ!",
+        "Pohela Boishakh ১৪৩২ er antorik subhechha!",
+        "Wishing you a bright & joyful Bengali New Year ১৪৩২!"
+    ];
+
+    function changeWish() {
+        const randomIndex = Math.floor(Math.random() * wishes.length);
+        document.getElementById('wish').innerHTML = `
+            ${wishes[randomIndex]}
+            <div class="year">১৪৩২</div>
+            <div class="subtext">নতুন বছরের শুভেচ্ছা ও ভালোবাসা!</div>
+            <div class="button-container">
+                <button onclick="changeWish()">আরও শুভেচ্ছা</button>
+                <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
+            </div>
+        `;
+    }
+
+    function toggleMusic() {
+        const music = document.getElementById('bg-music');
+        if (music.paused) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    }
+
+    // Floating festive circles
+    for(let i = 0; i < 30; i++) {
+        let circle = document.createElement('div');
+        circle.classList.add('circle');
+        let size = Math.random() * 30 + 10;
+        circle.style.width = size + 'px';
+        circle.style.height = size + 'px';
+        circle.style.left = Math.random() * 100 + 'vw';
+        circle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+        document.body.appendChild(circle);
+    }
+</script>
+
+</body>
+</html>
