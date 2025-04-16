@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff5f6d, #ffc371);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Kalpurush', sans-serif;
+}
+
+.greeting {
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+    text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.year {
+    margin-top: 10px;
+    font-size: 2rem;
+    color: #ffe;
+    text-shadow: 0 0 15px rgba(255,255,255,0.7);
+    animation: fadeIn 4s infinite alternate;
+}
+
+.subtext {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #ffe;
+    animation: fadeIn 4s infinite alternate;
+}
+
+.button-container {
+    margin-top: 35px;
+}
+
+button {
+    margin: 8px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    background: #ffffff;
+    color: #ff4e50;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff4e50;
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.6; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
